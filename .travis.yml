@@ -7,7 +7,7 @@ matrix:
   fast_finish: true
 
 install:
-  - pip install pipenv --upgrade --user
+  - pip install pipenv --upgrade
   - pipenv install
 
 script:
