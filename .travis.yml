@@ -11,7 +11,6 @@ install:
   - pipenv install
 
 script:
-    - pipenv check
     - pylama
     - python -m unittest discover tests/
 
