@@ -1,0 +1,14 @@
+language: python
+
+matrix:
+  fast_finish: true
+
+install:
+  - pip install pylama
+
+script:
+    - pylama
+    - python -m unittest discover tests/
+
+notifications:
+  email: false
