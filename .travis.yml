@@ -7,12 +7,12 @@ matrix:
   fast_finish: true
 
 install:
-  - pip install pipenv
+  - pip install pipenv --upgrade --user
   - pipenv install
 
 script:
-  - pipenv run "pylama"
-  - pipenv run "pytest"
+  - pipenv run pylama
+  - pipenv run pytest
 
 notifications:
   email: false
