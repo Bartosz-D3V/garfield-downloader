@@ -11,7 +11,7 @@ install:
   - pipenv install
 
 script:
-    - pylama
+    - pipenv run pylama
     - python -m unittest discover tests/
 
 notifications:
