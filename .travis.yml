@@ -4,9 +4,11 @@ matrix:
   fast_finish: true
 
 install:
-  - pip install pylama
+  - pip install pipenv
+  - pipenv install
 
 script:
+    - pipenv check
     - pylama
     - python -m unittest discover tests/
 
