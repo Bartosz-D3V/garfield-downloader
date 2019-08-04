@@ -1,3 +1,9 @@
+""" download_image module
+
+Defines download_image function
+
+"""
+
 import os
 
 import requests
@@ -5,6 +11,11 @@ from requests import Response
 
 
 def download_image(loc: str, url: str) -> None:
+    """
+    :param loc: location (directory) to save the file
+    :param url: location (HTTP address) of the image
+    :return: None
+    """
     res: Response = requests.get(url)
     res.raise_for_status()
     with open(os.path.join(loc, os.path.basename(url).split("?")[0]),
