@@ -13,6 +13,7 @@ install:
 
 script:
   - pipenv run pylint **/*.py
+  - pipenv run mypy **/*.py
   - pipenv run pytest
 
 notifications:

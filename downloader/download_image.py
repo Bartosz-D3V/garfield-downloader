@@ -10,7 +10,7 @@ import requests
 from requests import Response
 
 
-def download_image(loc: str, url: str) -> None:
+def download_image(loc, url: str) -> None:
     """
     :param loc: location (directory) to save the file
     :param url: location (HTTP address) of the image
