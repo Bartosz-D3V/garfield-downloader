@@ -12,8 +12,9 @@ install:
   - pipenv sync --dev
 
 script:
-  - pipenv run pylama
-#  - pipenv run pytest
+  - pipenv run pylint **/*.py
+  - pipenv run mypy **/*.py
+  - pipenv run pytest
 
 notifications:
   email: false
