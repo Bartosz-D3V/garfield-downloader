@@ -1,7 +1,7 @@
 import os
 
-from pipenv.vendor import requests
-from pipenv.vendor.requests import Response
+import requests
+from requests import Response
 
 
 def download_image(loc: str, url: str) -> None:
