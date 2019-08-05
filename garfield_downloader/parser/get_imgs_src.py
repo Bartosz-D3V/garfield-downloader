@@ -3,7 +3,6 @@
 Defines get_imgs_src function
 
 """
-
 from typing import List
 
 import requests
