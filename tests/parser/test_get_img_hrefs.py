@@ -60,6 +60,6 @@ def test_get_imgs_src_should_return_empty_list():
     no comics found
     :return: None
     """
-    with HTTMock(garfield_mock):
+    with HTTMock(garfield_empty_mock):
         found_hrefs = get_imgs_src('https://garfield.com', age_gated='test')
         assert found_hrefs == []
