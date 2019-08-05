@@ -27,6 +27,19 @@ def garfield_mock(url, request) -> str:
     </html>
     """
 
+@urlmatch(netloc=r'(.*\.)?garfield\.com$')
+def garfield_empty_mock(url, request) -> str:
+    """
+    Mock HTTP empty response using HTTMock
+    :param url: HTTPMock url
+    :param request: HTTPMock request
+    :return: str
+    """
+    return """
+    <html>
+        <body></body>
+    </html>
+    """
 
 def test_get_imgs_src_should_return_srcs():
     """
@@ -39,3 +52,14 @@ def test_get_imgs_src_should_return_srcs():
         found_hrefs = get_imgs_src('https://garfield.com', age_gated='test')
         expected_hrefs = ["first_href", "second_href"]
         assert found_hrefs == expected_hrefs
+
+
+def test_get_imgs_src_should_return_empty_list():
+    """
+    get_imgs_src should return empty list if
+    no comics found
+    :return: None
+    """
+    with HTTMock(garfield_mock):
+        found_hrefs = get_imgs_src('https://garfield.com', age_gated='test')
+        assert found_hrefs == []
