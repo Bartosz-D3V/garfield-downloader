@@ -7,9 +7,12 @@ verify_ssl = true
 pytest = "*"
 pylint = "*"
 mypy = "*"
+httmock = "*"
 
 [packages]
 requests = "*"
+beautifulsoup4 = "*"
+httmock = "*"
 
 [requires]
 python_version = "3.7"
