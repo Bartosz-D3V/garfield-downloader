@@ -12,8 +12,8 @@ install:
   - pipenv sync --dev
 
 script:
-  - pipenv run pylint **/*.py
-  - pipenv run mypy **/*.py
+  - pipenv run pylint garfield_downloader tests
+  - pipenv run mypy --ignore-missing-imports garfield_downloader tests
   - pipenv run pytest
 
 notifications:

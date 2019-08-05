@@ -7,6 +7,7 @@ from garfield_downloader.parser.get_imgs_src import get_imgs_src
 
 
 @urlmatch(netloc=r'(.*\.)?garfield\.com$')
+# pylint: disable=unused-argument
 def garfield_mock(url, request) -> str:
     """
     Mock HTTP response using HTTMock
@@ -27,7 +28,9 @@ def garfield_mock(url, request) -> str:
     </html>
     """
 
+
 @urlmatch(netloc=r'(.*\.)?garfield\.com$')
+# pylint: disable=unused-argument
 def garfield_empty_mock(url, request) -> str:
     """
     Mock HTTP empty response using HTTMock
@@ -40,6 +43,7 @@ def garfield_empty_mock(url, request) -> str:
         <body></body>
     </html>
     """
+
 
 def test_get_imgs_src_should_return_srcs():
     """
