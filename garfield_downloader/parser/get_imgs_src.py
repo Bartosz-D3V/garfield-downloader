@@ -3,12 +3,12 @@
 Defines get_imgs_src function
 
 """
-
 from typing import List
 
-import bs4
 import requests
 from requests import Response
+
+from bs4 import BeautifulSoup
 
 
 def get_imgs_src(url: str, **kwargs) -> List[str]:
@@ -21,6 +21,6 @@ def get_imgs_src(url: str, **kwargs) -> List[str]:
     """
     res: Response = requests.get(url, cookies={'age-gated': kwargs.get('age_gated')})
     res.raise_for_status()
-    soup = bs4.BeautifulSoup(res.text, 'html.parser')
+    soup = BeautifulSoup(res.text, 'html.parser')
     comic_el = soup.select('div.comic-display img')
     return list(map(lambda img: img['src'], comic_el))
