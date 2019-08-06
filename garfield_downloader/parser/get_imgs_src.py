@@ -6,8 +6,9 @@ Defines get_imgs_src function
 from typing import List
 
 import requests
-from bs4 import BeautifulSoup
 from requests import Response
+
+from bs4 import BeautifulSoup
 
 
 def get_imgs_src(url: str, **kwargs) -> List[str]:
