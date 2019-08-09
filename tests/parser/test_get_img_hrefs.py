@@ -34,8 +34,8 @@ def garfield_mock(url, request) -> str:
 def garfield_empty_mock(url, request) -> str:
     """
     Mock HTTP empty response using HTTMock
-    :param url: HTTPMock url
-    :param request: HTTPMock request
+    :param url: str
+    :param request: Request
     :return: str
     """
     return """
