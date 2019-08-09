@@ -1,4 +1,9 @@
+""" Unit tests for get_confirmation_cookie
+module
+"""
+
 from httmock import urlmatch, response, HTTMock
+from requests.utils import dict_from_cookiejar
 
 from garfield_downloader.parser.get_confirmation_cookie import get_confirmation_data
 
@@ -6,6 +11,13 @@ from garfield_downloader.parser.get_confirmation_cookie import get_confirmation_
 @urlmatch(netloc=r'(.*\.)?garfield\.com$')
 # pylint: disable=unused-argument
 def garfield_mock(url, request) -> str:
+    """
+    Mock HTTP response containing cookie and a HTML
+    form with secret token input
+    :param url:
+    :param request:
+    :return:
+    """
     content = """
     <html>
         <body>
@@ -29,4 +41,4 @@ def test_get_confirmation_data() -> None:
     with HTTMock(garfield_mock):
         res = get_confirmation_data()
         assert res[0] == 'secret_token'
-        assert dict(res[1])['first'] == 'some_cookie_1'
+        assert dict_from_cookiejar(res[1])['first'] == 'some_cookie_1'

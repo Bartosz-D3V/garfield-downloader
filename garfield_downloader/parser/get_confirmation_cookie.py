@@ -9,8 +9,8 @@ from http.cookiejar import CookieJar
 from typing import Tuple
 
 import requests
-from bs4 import BeautifulSoup
 from requests import Response
+from bs4 import BeautifulSoup
 
 URL = "https://garfield.com"
 
