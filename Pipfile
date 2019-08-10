@@ -12,8 +12,8 @@ httmock = "*"
 [packages]
 requests = "*"
 beautifulsoup4 = "*"
-click = "*"
 colorama = "*"
+click = "*"
 
 [requires]
 python_version = "3.7"
