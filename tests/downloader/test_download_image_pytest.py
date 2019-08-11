@@ -18,7 +18,7 @@ def test_download_image_should_save_image(tmpdir):
     :return: None
     """
     tmpdir.mkdir('temp')
-    download_image(tmpdir.get_temproot(), URL)
+    download_image(f"{tmpdir.get_temproot()}/python-logo-master-v3-TM-flattened.png", URL)
 
     assert filecmp.cmp(
         f'{tmpdir.get_temproot()}/python-logo-master-v3-TM-flattened.png',
