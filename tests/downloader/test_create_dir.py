@@ -13,8 +13,8 @@ def test_create_dir_should_create_dir(tmpdir) -> None:
     :param tmpdir: pytest temporary directory
     :return: None
     """
-    create_dir(f"{tmpdir.get_temproot()}/Test")
-    assert os.path.exists(f"{tmpdir.get_temproot()}/Test")
+    create_dir(f"{tmpdir.get_temproot()}/Test/SubFolder")
+    assert os.path.exists(f"{tmpdir.get_temproot()}/Test/SubFolder")
 
 
 def test_create_dir_should_not_create_dir(tmpdir) -> None:

@@ -1,5 +1,6 @@
 """ Unit tests for download_images module
 """
+import os
 
 from garfield_downloader.downloader.download_images import download_images
 
@@ -17,4 +18,7 @@ def test_download_images_should_download_images(tmpdir) -> None:
     :return: None
     """
     tmpdir.mkdir('test-download')
-    download_images(f"{tmpdir.get_temproot()}/test-download", URLS)
+    download_images(f"{tmpdir.get_temproot()}/test-download/", URLS)
+    assert os.path.exists(f"{tmpdir.get_temproot()}/test-download/2019/August/08.gif")
+    assert os.path.exists(f"{tmpdir.get_temproot()}/test-download/2018/May/18.gif")
+    assert os.path.exists(f"{tmpdir.get_temproot()}/test-download/2017/January/29.gif")

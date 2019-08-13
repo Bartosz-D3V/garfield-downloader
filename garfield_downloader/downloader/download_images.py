@@ -4,7 +4,7 @@ Defines download_images function
 
 """
 
-from collections import Iterator
+from collections.abc import Iterator
 
 from garfield_downloader.downloader.create_dir import create_dir
 from garfield_downloader.downloader.download_image import download_image
@@ -16,7 +16,6 @@ def download_images(loc: str, links: Iterator) -> None:
     Function to download all data from provided links
     :param loc: str
     :param links: Iterator
-    :param callback: FunctionType
     :return: None
     """
     for src in links:
