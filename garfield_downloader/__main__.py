@@ -3,9 +3,7 @@
 from datetime import date, datetime
 import click
 
-from garfield_downloader.downloader.create_dir import create_dir
-from garfield_downloader.downloader.download_image import download_image
-from garfield_downloader.downloader.get_comic_dir import get_comic_dir
+from garfield_downloader.downloader.download_images import download_images
 from garfield_downloader.parser.get_comic_links import get_comic_links
 from garfield_downloader.parser.get_confirmation_cookie import get_confirmation_data, get_age_gated
 from garfield_downloader.parser.get_imgs_src import get_imgs_src
@@ -39,11 +37,7 @@ def main(start_date: datetime, end_date: datetime) -> None:
     click.secho("Done! Links with comics fetched successfully", fg='green')
     raw_img_srcs = map(lambda link: get_imgs_src(link, age_gated=age_gated)[0], website_links)
     click.secho("Starting download of the comics...")
-    for src in raw_img_srcs:
-        save_dir = get_comic_dir(src)
-        create_dir("/".join(save_dir.split('/')[:2]))
-        download_image(save_dir, src)
-        click.secho(f"Downloaded comic: {save_dir}")
+    download_images('./', raw_img_srcs)
 
 
 # pylint: disable=no-value-for-parameter
