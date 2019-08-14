@@ -3,7 +3,7 @@
 
 import os
 
-from garfield_downloader.downloader.create_dir import create_dir
+from garfield_downloader.file_util.create_dir import create_dir
 
 
 def test_create_dir_should_create_dir(tmpdir) -> None:
