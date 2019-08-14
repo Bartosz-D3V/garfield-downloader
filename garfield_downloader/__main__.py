@@ -1,9 +1,12 @@
 """ Main run file containing the CLI
 """
 from datetime import date, datetime
+from queue import Queue
+
 import click
 
-from garfield_downloader.downloader.download_images import download_images
+from garfield_downloader.collection_util.split_collection import split_collection
+from garfield_downloader.downloader.download_worker import DownloadWorker
 from garfield_downloader.parser.get_comic_links import get_comic_links
 from garfield_downloader.parser.get_confirmation_cookie import get_confirmation_data, get_age_gated
 from garfield_downloader.parser.get_imgs_src import get_imgs_src
@@ -35,10 +38,17 @@ def main(start_date: datetime, end_date: datetime) -> None:
     click.secho("Fetching links to download comics...", fg="yellow")
     website_links = get_comic_links(start_date, end_date)
     click.secho("Done! Links with comics fetched successfully", fg='green')
-    raw_img_srcs = map(lambda link: get_imgs_src(link, age_gated=age_gated)[0], website_links)
-    click.secho("Starting download of the comics...")
-    download_images('./', raw_img_srcs)
+    raw_img_srcs = [get_imgs_src(link, age_gated=age_gated)[0] for link in website_links]
 
+    queue: Queue = Queue()
+    chunked_lists = split_collection(raw_img_srcs, int(len(raw_img_srcs) / 10))
+    click.secho("Starting download of the comics...", fg="yellow")
+    for chunked_list in chunked_lists:
+        worker = DownloadWorker(queue)
+        worker.start()
+        queue.put(('./', chunked_list))
+    queue.join()
+    click.secho("Done! Comics downloaded successfully", fg='green')
 
 # pylint: disable=no-value-for-parameter
 main()

@@ -6,7 +6,7 @@ Defines download_images function
 
 from collections.abc import Iterable
 
-from garfield_downloader.downloader.create_dir import create_dir
+from garfield_downloader.file_util.create_dir import create_dir
 from garfield_downloader.downloader.download_image import download_image
 from garfield_downloader.downloader.get_comic_dir import get_comic_dir
 
