@@ -23,11 +23,16 @@ DATE_FORMATS = ["%d/%m/%Y", "%d-%m-%Y", "%Y/%m/%d", "%Y-%m-%d"]
               default=str(date.today()),
               help="Ending date of comics to download",
               type=click.DateTime(formats=DATE_FORMATS))
-def main(start_date: datetime, end_date: datetime) -> None:
+@click.option("--path",
+              default=str('./'),
+              help="Path to save the comics",
+              type=click.Path(dir_okay=True, writable=True, allow_dash=True))
+def main(start_date: datetime, end_date: datetime, path: str) -> None:
     """
     Main method instantiating CLI
     :param start_date: datetime
     :param end_date: datetime
+    :param path: str
     :return: None
     """
     click.secho("Downloading confirmation cookies from https://garfield.com...", fg='red')
@@ -46,9 +51,10 @@ def main(start_date: datetime, end_date: datetime) -> None:
     for chunked_list in chunked_lists:
         worker = DownloadWorker(queue)
         worker.start()
-        queue.put(('./', chunked_list))
+        queue.put((path, chunked_list))
     queue.join()
     click.secho("Done! Comics downloaded successfully", fg='green')
+
 
 # pylint: disable=no-value-for-parameter
 main()
