@@ -12,9 +12,18 @@
 </div>
 
 # CLI - Garfield comics downloader
+
+<p align="center">
+
 [![Build Status](https://travis-ci.com/Bartosz-D3V/garfield-downloader.svg?token=tqZyPRhzSnop7iN2Y7Ug&branch=master)](https://travis-ci.com/Bartosz-D3V/garfield-downloader)
 
+[![codecov](https://codecov.io/gh/Bartosz-D3V/garfield-downloader/branch/master/graph/badge.svg)](https://codecov.io/gh/Bartosz-D3V/garfield-downloader)
+
+
+
 Simple CLI for quick & concurrent Garfield comics download.
+
+</p>
 
 ## Heading Pre-requisites
 
