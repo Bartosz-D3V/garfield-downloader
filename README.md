@@ -9,7 +9,7 @@
 (__(__)___(__)__)
          
 </pre>
-</center>
+</div>
 
 # CLI - Garfield comics downloader
 [![Build Status](https://travis-ci.com/Bartosz-D3V/garfield-downloader.svg?token=tqZyPRhzSnop7iN2Y7Ug&branch=master)](https://travis-ci.com/Bartosz-D3V/garfield-downloader)
