@@ -8,13 +8,17 @@ matrix:
 
 install:
   - pip install pipenv --upgrade
+  - pip install codecov
   - pipenv sync
   - pipenv sync --dev
 
 script:
   - pipenv run pylint garfield_downloader tests
   - pipenv run mypy --ignore-missing-imports garfield_downloader tests
-  - pipenv run pytest
+  - pipenv run pytest --cov --cov-report=xml
+
+after_success:
+  - codecov -t $TOKEN
 
 notifications:
   email: false
