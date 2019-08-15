@@ -22,10 +22,16 @@ Software installed and added to a class path (as a system variable):
  1. Python
  2. Pipenv installed globally
  
- ## Installing
- Before working with the CLI, install dependencies using pipenv:
+## Installing
+Before working with the CLI, install dependencies using pipenv:
 
-    pipenv install
+   pipenv install
+
+## Running
+Example command download all comics between date 01/08/2019 and 11/08/2019 and save it
+to D:/garfield location:
+
+   pipenv run python -m garfield_downloader --start_date=01/08/2019 --end_date=11/08/2019 --path=D:/garfield
 
 ## Options
 

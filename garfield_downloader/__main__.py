@@ -43,11 +43,12 @@ def main(start_date: datetime, end_date: datetime, path: str) -> None:
     click.secho("Fetching links to download comics...", fg="yellow")
     website_links = get_comic_links(start_date, end_date)
     click.secho("Done! Links with comics fetched successfully", fg='green')
+    click.secho("Preparing links to download...", fg='yellow')
     raw_img_srcs = [get_imgs_src(link, age_gated=age_gated)[0] for link in website_links]
 
     queue: Queue = Queue()
     chunked_lists = split_collection(raw_img_srcs, int(len(raw_img_srcs) / 10))
-    click.secho("Starting download of the comics...", fg="yellow")
+    click.secho("Starting the download of the comics...", fg="yellow")
     for chunked_list in chunked_lists:
         worker = DownloadWorker(queue)
         worker.start()
