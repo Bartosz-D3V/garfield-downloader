@@ -1,3 +1,16 @@
+<div align="center">
+<pre>
+    /\_____/\
+   /  o   o  \
+  ( ==  ^  == )
+   )         (
+  (           )
+ ( (  )   (  ) )
+(__(__)___(__)__)
+         
+</pre>
+</center>
+
 # CLI - Garfield comics downloader
 [![Build Status](https://travis-ci.com/Bartosz-D3V/garfield-downloader.svg?token=tqZyPRhzSnop7iN2Y7Ug&branch=master)](https://travis-ci.com/Bartosz-D3V/garfield-downloader)
 
@@ -7,6 +20,7 @@ Simple CLI for quick & concurrent Garfield comics download.
 
 Software installed and added to a class path (as a system variable):
  1. Python
+ 2. Pipenv installed globally
  
  ## Installing
  Before working with the CLI, install dependencies using pipenv:
