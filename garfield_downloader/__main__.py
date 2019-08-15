@@ -29,7 +29,7 @@ DATE_FORMATS = ["%d/%m/%Y", "%d-%m-%Y", "%Y/%m/%d", "%Y-%m-%d"]
               type=click.Path(dir_okay=True, writable=True, allow_dash=True))
 def main(start_date: datetime, end_date: datetime, path: str) -> None:
     """
-    Main method instantiating CLI
+    CLI for concurrent downloading comics from garfield.com
     :param start_date: datetime
     :param end_date: datetime
     :param path: str
