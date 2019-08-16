@@ -7,7 +7,7 @@
   (           )
  ( (  )   (  ) )
 (__(__)___(__)__)
-         
+
 </pre>
 </div>
 
@@ -28,30 +28,52 @@ Simple CLI for quick & concurrent Garfield comics download.
 Software installed and added to a class path (as a system variable):
  1. Python
  2. Pipenv installed globally
- 
+
 ## Installing
 Before working with the CLI, install dependencies using pipenv:
 
     pipenv install
 
 ## Running
-Example command download all comics between date 01/08/2019 and 11/08/2019 and save it
+Example command download all comics between date 01/12/2018 and 31/01/2019 and save it
 to D:/garfield location:
 
-    pipenv run python -m garfield_downloader --start_date=01/08/2019 --end_date=11/08/2019 --path=D:/garfield 
+    pipenv run python -m garfield_downloader --start_date=01/08/2019 --end_date=11/08/2019 --path=D:/garfield
+
+Result directory structure being created:
+<pre>
+o
+`-- garfield
+    |-- 2019
+    |   `-- January
+    |       |-- 01.gif
+    |       |-- 02.gif
+    |       |-- 03.gif
+    |       |-- 04.gif
+    |       |-- ...
+    |       `-- 31.gif
+    `-- 2018
+        `-- December
+            |-- 01.gif
+            |-- 02.gif
+            |-- 03.gif
+            |-- 04.gif
+            |-- ...
+            `-- 31.gif
+</pre>
 
 ## Options
 
->   CLI for concurrent downloading comics from garfield.com    Options: 
-> 
->   --start_date [%d/%m/%Y|%d-%m-%Y|%Y/%m/%d|%Y-%m-%d]  
->                                   Starting date of comics to download  
->                                   
->   --end_date [%d/%m/%Y|%d-%m-%Y|%Y/%m/%d|%Y-%m-%d]  
->                                   Ending date of comics to download  
->                                   
->   --path PATH                     Path to save the comics  
->   
+>   CLI for concurrent downloading comics from garfield.com    Options:
+>
+>   --start_date [%d/%m/%Y|%d-%m-%Y|%Y/%m/%d|%Y-%m-%d]
+>                                   Starting date of comics to download
+>
+>   --end_date [%d/%m/%Y|%d-%m-%Y|%Y/%m/%d|%Y-%m-%d]
+>                                   Ending date of comics to download
+>
+>   --path PATH                     Path to save the comics
+>
 >   --help                          Show this message and exit.
 
 
