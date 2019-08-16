@@ -38,7 +38,7 @@ Before working with the CLI, install dependencies using pipenv:
 Example command download all comics between date 01/12/2018 and 31/01/2019 and save it
 to D:/garfield location:
 
-    pipenv run python -m garfield_downloader --start_date=01/08/2019 --end_date=11/08/2019 --path=D:/garfield
+    pipenv run python -m garfield_downloader --start_date=01/12/2018 --end_date=31/01/2019 --path=D:/garfield
 
 Result directory structure being created:
 <pre>
