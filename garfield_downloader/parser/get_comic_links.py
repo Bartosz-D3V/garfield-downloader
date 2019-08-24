@@ -25,7 +25,7 @@ def get_comic_links(start_date: date, end_date: date) -> Generator[str, None, No
 
 def date_to_url(date_val: date) -> str:
     """
-    Convert date to YYYY/MM/DD str format
+    Convert date to YYYY/MM/DD in str format
     :param date_val: date
     :return: string
     """

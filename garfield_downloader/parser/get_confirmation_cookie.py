@@ -42,4 +42,4 @@ def get_age_gated(token: str, cookies: CookieJar) -> str:
     }
     session = requests.Session()
     session.post(URL + "/agegate", data=data, cookies=cookies)
-    return session.cookies.get_dict()['age-gated']
+    return session.cookies.get_dict().get('age-gated')

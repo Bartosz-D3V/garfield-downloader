@@ -23,4 +23,4 @@ def get_imgs_src(url: str, **kwargs) -> List[str]:
     res.raise_for_status()
     soup = BeautifulSoup(res.text, 'html.parser')
     comic_el = soup.select('div.comic-display img')
-    return list(map(lambda img: img['src'], comic_el))
+    return [img['src'] for img in comic_el]
